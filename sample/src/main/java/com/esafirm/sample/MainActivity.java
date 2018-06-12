@@ -95,16 +95,12 @@ public class MainActivity extends AppCompatActivity {
         final boolean isExclude = ((Switch) findViewById(R.id.ef_switch_include_exclude)).isChecked();
 
         ImagePicker imagePicker = ImagePicker.create(this)
-                .language("in") // Set image picker language
                 .theme(R.style.ImagePickerTheme)
-                .returnMode(returnAfterCapture
-                        ? ReturnMode.ALL
-                        : ReturnMode.NONE) // set whether pick action or camera action should return immediate result or not. Only works in single mode for image picker
                 .folderMode(folderMode) // set folder mode (false by default)
-                .includeVideo(includeVideo) // include video (false by default)
-                .toolbarArrowColor(Color.RED) // set toolbar arrow up color
-                .toolbarFolderTitle("Folder") // folder selection title
-                .toolbarImageTitle("Tap to select"); // image selection title
+                .multi()
+                .toolbarArrowColor(Color.DKGRAY) // set toolbar arrow up color
+                .toolbarFolderTitle("写真を選択") // folder selection title
+                .toolbarImageTitle("写真を選択"); // image selection title
 
         if (useCustomImageLoader) {
             imagePicker.imageLoader(new GrayscaleImageLoader());
@@ -122,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             imagePicker.origin(images); // original selected images, used in multi mode
         }
 
-        imagePicker.limit(10) // max images can be selected (99 by default)
+        imagePicker
                 .showCamera(true) // show camera or not (true by default)
                 .imageDirectory("Camera")   // captured image directory name ("Camera" folder by default)
                 .imageFullDirectory(Environment.getExternalStorageDirectory().getPath()) // can be full path

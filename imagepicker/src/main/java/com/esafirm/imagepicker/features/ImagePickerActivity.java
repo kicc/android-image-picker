@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.ContentObserver;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -138,6 +139,7 @@ public class ImagePickerActivity extends AppCompatActivity implements ImagePicke
         snackBarView = findViewById(R.id.ef_snackbar);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitleTextColor(Color.DKGRAY);
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
 
